@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+        crossorigin="anonymous"></script>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Modak&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Corben:wght@700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Corben:wght@400;700&family=Josefin+Slab&display=swap');
+
+    nav {
+        font-weight: bold;
+    }
+
+    .nav-link {
+        font-size: 25px;
+        margin: 10px;
+        margin-right: 20px;
+        padding: 5px;
+        border-radius: 100px;
+        border: 2px double white;
+        transition: .1s all;
+    }
+
+    .nav-link:hover {
+        border: 2px double #fb0093;
+        box-shadow: 2px 2px 5px black;
+
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        background-image: url('./donut/bg2.jpg');
+        background-position: center;
+        background-attachment: fixed;
+
+    }
+
+    .order {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        position: absolute;
+        top: 15vw;
+    }
+
+    .card {
+        margin: 50px;
+        width: 360px;
+        height: 400px;
+        box-shadow: 2px 2px 5px black;
+    }
+
+    .card .image {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .card .image img {
+        width: 100%;
+        height: 100%;
+        transition: .5s;
+    }
+
+    .card:hover .image img {
+        opacity: .5;
+        transform: translateX(30%);
+        /*100%*/
+    }
+
+    .card .details {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 70%;
+        /*100%*/
+        height: 100%;
+        background: #fb0093;
+        transition: .5s;
+        transform-origin: left;
+        transform: perspective(2000px) rotateY(-90deg);
+    }
+
+    .card:hover .details {
+        transform: perspective(2000px) rotateY(0deg);
+    }
+
+    .card .details .center {
+        padding: 20px;
+        text-align: center;
+        background: #fff;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .card .details .center h1 {
+        margin: 0;
+        padding: 0;
+        color: #fb0093;
+        line-height: 20px;
+        font-size: 20px;
+        text-transform: uppercase;
+    }
+
+    .card .details .center h1 span {
+        font-size: 14px;
+        color: #262626;
+    }
+
+    .card .details .center p {
+        margin: 10px 0;
+        padding: 0;
+        color: #262626;
+    }
+
+    .card .details .center ul {
+        margin: 10px auto 0;
+        padding: 0;
+        display: table;
+    }
+
+    .card .details .center ul li {
+        list-style: none;
+        margin: 0 5px;
+        float: left;
+    }
+
+    .card .details .center ul li a {
+        display: block;
+        background: #fb0093;
+        width: 100px;
+        height: 40px;
+        font-size: 20px;
+        font-family: 'Josefin Slab', serif;
+        font-weight: bold;
+        padding: 3px;
+        text-align: center;
+        transform: .5s;
+        text-decoration: none;
+        border: 2px double white;
+        color: white;
+        border-radius: 100px;
+    }
+
+    .card .details .center ul li a:hover {
+        background: white;
+        border: 2px double #fb0093;
+        color: #fb0093;
+    }
+
+    .pro {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, 0%);
+        top: 10vw;
+        margin: auto;
+        font-weight: bolder;
+        color: white;
+        text-shadow: 2px 2px 2px black;
+        font-family: 'Corben', cursive;
+    }
+
+    #footer {
+
+        text-align: center;
+        line-height: 30px;
+        background-color: transparent;
+        color: white;
+        padding-top: 100PX;
+    }
+
+    #contact {
+        font-family: 'Josefin Slab', serif;
+        font-weight: bold;
+        letter-spacing: 2px;
+        margin: auto;
+        background-color: transparent;
+        padding: 30px;
+    }
+
+    .cont {
+        background-color: transparent;
+        color: white;
+        text-decoration: none;
+        margin-left: 30px;
+        padding: 20px;
+        font-size: 20px;
+        transition: all .4s;
+        font-family: 'Corben', cursive;
+        font-weight: bold;
+        text-shadow: 2px 2px 2px black;
+
+
+    }
+
+    .cont:hover {
+        color: #fb0093;
+    }
+
+
+
+
+    .aa {
+        padding: 10px;
+        font-family: 'Josefin Slab', serif;
+        font-weight: bolder;
+
+    }
+
+    a:hover {
+        color: white;
+    }
+
+    @media (max-width:600px) {
+
+        .content {
+            width: 100%;
+            justify-content: center;
+
+        }
+
+        #head {
+            font-size: 50px;
+        }
+
+        .poll {
+
+            width: 1vw;
+        }
+
+        .cont {
+            display: block;
+        }
+
+
+
+
+
+    }
+
+    #footer {
+        background-image: url('./donut/donut3.png');
+        background-repeat: no-repeat;
+        background-position: top;
+    }
+    .myDIV{
+        font-size: 100px;
+    }
+</style>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light"
+        style=" font-family: 'Josefin Slab', serif; padding : 0px ; position: fixed; width: 100%; z-index: 100000;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#" style="font-family: 'Corben', cursive; font-weight: bold; color : #fb0093; 
+        ">BIG DONUT</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent" style="background-color: transparent;">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.html"
+                            style=" color:rgb(100, 11, 50);">Home</a>
+                    </li>
+                    <li class="nav-item" style=" color:rgb(100, 11, 50);">
+                        <a class="nav-link" href="about.html">About us</a>
+                    </li>
+                    <li class="nav-item" style=" color:rgb(100, 11, 50);">
+                        <a class="nav-link" href="product.html">Products</a>
+                    </li>
+
+
+                </ul>
+
+            </div>
+
+        </div>
+    </nav>
+  
+    <h1 class="pro">OUR PRODUCTS</h1>
+    <div class="order">
+        <div class="card">
+            <div class="image">
+                <img src="./donut/product2.jpg" style="width : " />
+            </div>
+            <div class="details">
+                <div class="center">
+                    <h1>Someone famous<br><span>team leader</span></h1>
+                    <p>Lorem ipsum is simple dummy text on the printing and typesetting industry.</p>
+                    <ul>
+                        <li><a href="#" onclick="myFunction()">BUY</a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="image">
+                <img src="./donut/product8.jpg" style="width : " />
+            </div>
+            <div class="details">
+                <div class="center">
+                    <h1>Someone famous<br><span>team leader</span></h1>
+                    <p>Lorem ipsum is simple dummy text on the printing and typesetting industry.</p>
+                    <ul>
+                        <li><a href="#" onclick="myFunction()">BUY</a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="image">
+                <img src="./donut/product5.jpg" />
+            </div>
+            <div class="details">
+                <div class="center">
+                    <h1>Someone famous<br><span>team leader</span></h1>
+                    <p>Lorem ipsum is simple dummy text on the printing and typesetting industry.</p>
+                    <ul>
+                        <li><a href="#" onclick="myFunction()">BUY</a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="image">
+                <img src="./donut/product6.jpg" />
+            </div>
+            <div class="details">
+                <div class="center">
+                    <h1>Someone famous<br><span>team leader</span></h1>
+                    <p>Lorem ipsum is simple dummy text on the printing and typesetting industry.</p>
+                    <ul>
+                        <li><a href="#" onclick="myFunction()">BUY</a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="image">
+                <img src="./donut/product10.jpg" />
+            </div>
+            <div class="details">
+                <div class="center">
+                    <h1>Someone famous<br><span>team leader</span></h1>
+                    <p>Lorem ipsum is simple dummy text on the printing and typesetting industry.</p>
+                    <ul>
+                        <li><a href="#" onclick="myFunction()">BUY</a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="image">
+                <img src="./donut/product11.jpg" />
+            </div>
+            <div class="details">
+                <div class="center">
+                    <h1>Someone famous<br><span>team leader</span></h1>
+                    <p>Lorem ipsum is simple dummy text on the printing and typesetting industry.</p>
+                    <ul>
+                        <li><a href="#" onclick="myFunction()">BUY</a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="footer">
+
+
+            <div class="aa">Copyright © 2021 BIG DONUT </div><br>
+            <div id="contact">
+                <a class="cont" href="#" target="_blank">Instgram</span>
+                    <a class="cont" href="#" target="_blank">Facebook</a>
+                    <a class="cont" href="#" target="_blank">Discord</a>
+                    <a class="cont" href="#" target="_blank">Git-Hub</a>
+            </div>
+            <div><a href="https://www.bigdonut.com/" target="_blank">www.bigdonut.com</a></div>
+        </div>
+    </div>
+
+    </div>
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myDIV");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+    </script>
+
+
+
+</body>
+
+</html>
